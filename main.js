@@ -59,7 +59,7 @@ function loadContent(page) {
 
                 const script = document.createElement('script');
                 script.src = 'https://vital1162.github.io/Tool_view/js/clock.js';
-                script.defer = true; 
+                script.defer = true;
                 document.body.appendChild(script);
             }
         })
