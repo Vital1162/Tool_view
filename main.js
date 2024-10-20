@@ -1,4 +1,11 @@
 function loadContent(page) {
+    // Check if the browser is offline
+    if (!navigator.onLine) {
+        console.error('No internet connection. Redirecting to error page.');
+        window.location.href = '/html/error.html?error=' + encodeURIComponent('No internet connection');
+        return; // Exit the function if offline
+    }
+
     fetch(page)
         .then(response => {
             // Check if the response is not ok
@@ -15,8 +22,7 @@ function loadContent(page) {
 
                 // Create a script element to load clock.js
                 const script = document.createElement('script');
-                // script.src = './js/clock.js'; // Make sure the path is correct
-                script.src = 'https://vital1162.github.io/js/clock.js';
+                script.src = 'https://vital1162.github.io/js/clock.js'; // Ensure the path is correct
                 script.defer = true; // Ensures the script runs after the content is loaded
                 document.body.appendChild(script);
             }
