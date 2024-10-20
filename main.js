@@ -15,7 +15,7 @@ function loadContent(page) {
     // Check if the browser is offline
     if (!navigator.onLine) {
         console.error('No internet connection. Redirecting to error page.');
-        window.location.href = '/html/Error.html?error=' + encodeURIComponent('No internet connection');
+        window.location.href = 'https://vital1162.github.io/Tool_view/html/Error.html?error=' + encodeURIComponent('No internet connection');
         return; // Exit the function if offline
     }
 
@@ -24,7 +24,7 @@ function loadContent(page) {
             console.log('Response received:', response);
             if (!response.ok) {
                 return response.text().then(errorText => {
-                    window.location.href = `/html/Error.html?error=${encodeURIComponent(errorText)}`;
+                    window.location.href = `https://vital1162.github.io/Tool_view/html/Error.html?error=${encodeURIComponent(errorText)}`;
                 });
             }
             return response.text();
@@ -42,6 +42,6 @@ function loadContent(page) {
         })
         .catch(error => {
             console.error('Error loading page:', error);
-            window.location.href = `/html/Error.html?error=${encodeURIComponent(error.message)}`;
+            window.location.href = `https://vital1162.github.io/Tool_view/html/Error.html?error=${encodeURIComponent(error.message)}`;
         });
 }
