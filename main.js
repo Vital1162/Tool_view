@@ -1,7 +1,7 @@
 function loadContent(page) {
     console.log('Attempting to load content from:', page);
 
-    const validPaths = ['']; // Đây là các path hợp lệ sau Tool_view/, bạn có thể thêm vào nếu có nhiều trang con
+    const validPaths = ['Error.html'];
     const currentURL = window.location.href;
     const baseURL = 'https://vital1162.github.io/Tool_view/';
 
@@ -14,7 +14,7 @@ function loadContent(page) {
         window.location.href = `https://vital1162.github.io/Tool_view/html/Error.html?error=${encodeURIComponent('Invalid path: ' + path)}`;
         return;
     }
-    
+
     // Check if the browser is offline
     if (!navigator.onLine) {
         console.error('No internet connection. Redirecting to error page.');
