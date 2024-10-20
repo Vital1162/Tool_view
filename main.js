@@ -3,7 +3,6 @@ function loadContent(page) {
         .then(response => {
             // Check if the response is not ok
             if (!response.ok) {
-                
                 window.location.href = `/html/error.html?error=${encodeURIComponent(response.text())}`;
                 return;
             }
