@@ -4,7 +4,7 @@ function loadContent(page) {
     // Check if the user has entered an incorrect URL
     if (page !== 'https://vital1162.github.io/Tool_view/') {
         console.warn('Incorrect URL. Redirecting to error page.');
-        window.location.href = '/html/error.html?error=' + encodeURIComponent('Page not found or URL incorrect');
+        window.location.href = '/html/Error.html?error=' + encodeURIComponent('Page not found or URL incorrect');
         return;
     }
 
@@ -20,7 +20,7 @@ function loadContent(page) {
             console.log('Response received:', response);
             if (!response.ok) {
                 return response.text().then(errorText => {
-                    window.location.href = `/html/error.html?error=${encodeURIComponent(errorText)}`;
+                    window.location.href = `/html/Error.html?error=${encodeURIComponent(errorText)}`;
                 });
             }
             return response.text();
@@ -38,6 +38,6 @@ function loadContent(page) {
         })
         .catch(error => {
             console.error('Error loading page:', error);
-            window.location.href = `/html/error.html?error=${encodeURIComponent(error.message)}`;
+            window.location.href = `/html/Error.html?error=${encodeURIComponent(error.message)}`;
         });
 }
