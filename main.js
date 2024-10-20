@@ -22,7 +22,8 @@ function loadContent(page) {
 
                 // Create a script element to load clock.js
                 const script = document.createElement('script');
-                script.src = 'https://vital1162.github.io/js/clock.js'; // Ensure the path is correct
+                // script.src = 'https://vital1162.github.io/js/clock.js'; // Ensure the path is correct
+                script.src = 'https://vital1162.github.io/Tool_view/js/clock.js'
                 script.defer = true; // Ensures the script runs after the content is loaded
                 document.body.appendChild(script);
             }
