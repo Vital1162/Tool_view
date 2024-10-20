@@ -1,0 +1,95 @@
+body {
+	font-family: "Audiowide", Roboto;
+	background: black;
+	color: white;
+    padding-left: 48px;
+}
+
+
+/* Sidebar */
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 48px;
+    padding: 0;
+    margin: 0;
+	background: #131313;
+	overflow: hidden; 
+	transition: width 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+    /* border: 1px solid white */
+}
+
+.sidebar:hover {
+	width: 200px;
+}
+
+.menu-item:hover {
+	border: 1px solid white;
+}
+
+.sidebar:hover .label{
+	opacity: 1;
+}
+
+.menu-item {
+	padding: 12px;
+	text-decoration: none;
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.menu-item .icon {
+	text-align: center;
+	padding: 4px;
+}
+
+.menu-item:hover {
+	background: white;
+	color: #1d1d1d;
+}
+
+.menu-item .label{
+	opacity: 0;
+	transition: opacity 0.4s ease-in-out; 
+}
+
+.menu-item:last-child {
+	margin-top: auto;
+    border-top: 1px solid white;
+}
+
+[class*="fa-"]::before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.nav-title {
+    opacity: 0; /* Initially hidden */
+    font-weight: bold;
+    margin: 10px; /* Adjust as necessary */
+    text-align: center;
+    overflow: hidden;
+    gap: 12px;
+    font-size: 24px;
+}
+
+/* Show nav-title when hovering over the sidebar */
+.sidebar:hover .nav-title {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -ms-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
+}
+
+
+
+/* Clock */

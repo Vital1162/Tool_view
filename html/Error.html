@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error</title>
+    <link rel="stylesheet" href="../css/error.css" />
+    <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+    <script>
+      // Function to get query parameters from the URL
+      function getQueryParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+      }
+
+      // Get the error message from the URL
+      const errorMessage = getQueryParameter('error');
+
+      // Display the error message on the page
+      window.onload = function() {
+        if (errorMessage) {
+          const errorContainer = document.getElementById('error')
+          errorContainer.innerHTML = `<h1 class="main-heading">Error Occurred</h1><p>${errorMessage}</p>`;
+          document.querySelector('.content').appendChild(errorContainer);
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="gif">
+        <img src="../images/not_found.png" style="width: 200px" />
+      </div>
+      <div class="content">
+        <div id = "error"></div>
+        <a href="../main.html" target="_blank">
+          <button>Trở về trang chủ</button>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
