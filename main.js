@@ -1,22 +1,25 @@
 function loadContent(page) {
     console.log('Attempting to load content from:', page);
 
-    // // Lấy đường dẫn hiện tại của trang
-    const currentPath = window.location.pathname;
+    const validPaths = ['']; // Đây là các path hợp lệ sau Tool_view/, bạn có thể thêm vào nếu có nhiều trang con
+    const currentURL = window.location.href;
+    const baseURL = 'https://vital1162.github.io/Tool_view/';
 
-    // Kiểm tra URL không đúng (dùng biểu thức chính quy để kiểm tra các đường dẫn sai)
-    const validPath = '/Tool_view/';
-    if (!currentPath.includes(validPath)) {
-        console.warn('Incorrect URL. Redirecting to error page.');
-        window.location.href = 'https://vital1162.github.io/Tool_view/html/Error.html?error=' + encodeURIComponent('Page not found or URL incorrect');
+    // Lấy phần path sau baseURL
+    const path = currentURL.replace(baseURL, '');
+
+    // Kiểm tra xem path có nằm trong danh sách path hợp lệ không
+    if (!validPaths.includes(path)) {
+        console.error('Invalid path:', path);
+        window.location.href = `https://vital1162.github.io/Tool_view/html/Error.html?error=${encodeURIComponent('Invalid path: ' + path)}`;
         return;
     }
-
+    
     // Check if the browser is offline
     if (!navigator.onLine) {
         console.error('No internet connection. Redirecting to error page.');
         window.location.href = 'https://vital1162.github.io/Tool_view/html/Error.html?error=' + encodeURIComponent('No internet connection');
-        return; // Exit the function if offline
+        // return; // Exit the function if offline
     }
 
     fetch(page)
@@ -26,6 +29,8 @@ function loadContent(page) {
                 return response.text().then(errorText => {
                     window.location.href = `https://vital1162.github.io/Tool_view/html/Error.html?error=${encodeURIComponent(errorText)}`;
                 });
+
+                return null;
             }
             return response.text();
         })
