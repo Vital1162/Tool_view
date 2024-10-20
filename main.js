@@ -1,7 +1,7 @@
 function loadContent(page) {
     console.log('Attempting to load content from:', page);
 
-    const validPaths = ['Error.html'];
+    const validPaths = ['https://vital1162.github.io/Tool_view/'];
     const currentURL = window.location.href;
     const baseURL = 'https://vital1162.github.io/Tool_view/';
 
