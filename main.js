@@ -1,16 +1,16 @@
 function loadContent(page) {
     console.log('Attempting to load content from:', page);
 
-    // Lấy đường dẫn hiện tại của trang
-    const currentPath = window.location.pathname;
+    // // Lấy đường dẫn hiện tại của trang
+    // const currentPath = window.location.pathname;
 
-    // Kiểm tra URL không đúng (dùng biểu thức chính quy để kiểm tra các đường dẫn sai)
-    const validPath = '/Tool_view/';
-    if (!currentPath.includes(validPath)) {
-        console.warn('Incorrect URL. Redirecting to error page.');
-        window.location.href = '/html/error.html?error=' + encodeURIComponent('Page not found or URL incorrect');
-        return;
-    }
+    // // Kiểm tra URL không đúng (dùng biểu thức chính quy để kiểm tra các đường dẫn sai)
+    // const validPath = '/Tool_view/';
+    // if (!currentPath.includes(validPath)) {
+    //     console.warn('Incorrect URL. Redirecting to error page.');
+    //     window.location.href = '/html/error.html?error=' + encodeURIComponent('Page not found or URL incorrect');
+    //     return;
+    // }
 
     // Check if the browser is offline
     if (!navigator.onLine) {
