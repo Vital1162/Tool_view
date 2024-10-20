@@ -1,0 +1,37 @@
+
+<style>
+    /* Styling for the markdown container */
+    zero-md {
+        display: block;
+        width: 90%; /* Set default width to 90% */
+        max-width: 800px; /* Max width for larger screens */
+        margin: 20px auto; /* Center it horizontally with top margin */
+        background-color: #fff; /* Add white background for readability */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        border: 2px solid white
+    }
+
+    /* Media Query for screens larger than 768px (tablets and desktops) */
+    @media (min-width: 768px) {
+        zero-md {
+            width: 75%; /* Larger width for bigger screens */
+        }
+    }
+
+    /* Media Query for screens larger than 1024px (desktops) */
+    @media (min-width: 1024px) {
+        zero-md {
+            width: 60%; /* Even larger width for very large screens */
+        }
+    }
+
+    body{
+        background-color: #131313;
+    }
+</style>
+
+<body>
+    <zero-md src="../../content_node/connect_mongodb.md"></zero-md>
+</body>
+</html>

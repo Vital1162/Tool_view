@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="../css/node.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script>
+
+<div class="vegetables">
+    <ul class="page">
+        <zero-md src="../content_node/folder_can_thiet.md"></zero-md>
+    </ul>
+    <ul class="page">
+        <zero-md src="../content_node/connect_mongodb.md"></zero-md>
+    </ul>
+    <!-- Page 1 -->
+
+    
+</div>
+<div class="pagination">
+    <button class="arrow" id="prevPage" disabled>← <span class="nav-text">PREV</span></button>
+    <div class="pages">
+        <div class="page-number active">1</div>
+        <div class="page-number">2</div>
+        <div class="page-number">3</div>
+        <div class="page-number">4</div>
+        <div class="page-number">5</div>
+    </div>
+    <button class="arrow" id="nextPage"><span class="nav-text">NEXT</span> →</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const pages = document.querySelectorAll(".page");
+        const pageNumbers = document.querySelectorAll(".page-number");
+        const prevButton = document.getElementById("prevPage");
+        const nextButton = document.getElementById("nextPage");
+        let currentPage = 0;
+    
+        function showPage(pageNumber) {
+            pages.forEach((page, index) => {
+                if (index === pageNumber) {
+                    page.style.display = "block";
+                } else {
+                    page.style.display = "none";
+                }
+            });
+
+            window.scrollTo(0, 0) //to the top
+        }
+    
+        function updateButtons() {
+            prevButton.disabled = currentPage === 0;
+            nextButton.disabled = currentPage === pages.length - 1;
+        }
+    
+        function setActive() {
+            pageNumbers.forEach((page, index) => {
+                if(currentPage === index) {
+                    page.classList.add("active");
+                } else {
+                    page.classList.remove("active");
+                }
+            });
+        }
+    
+        pageNumbers.forEach((page, index) => {
+            page.addEventListener("click", function () {
+                showPage(index);
+                currentPage = index;
+                updateButtons();
+                setActive();
+            });
+        });
+    
+        prevButton.addEventListener("click", function () {
+            if (currentPage > 0) {
+                currentPage--;
+                showPage(currentPage);
+                updateButtons();
+                setActive();
+            }
+        });
+    
+        nextButton.addEventListener("click", function () {
+            if (currentPage < pages.length - 1) {
+                currentPage++;
+                showPage(currentPage);
+                updateButtons();
+                setActive();
+            }
+        });
+    
+        showPage(currentPage);
+        updateButtons();
+    });
+</script>

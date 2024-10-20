@@ -36,3 +36,7 @@ function loadContent(page) {
             window.location.href = `https://vital1162.github.io/Tool_view/html/Error.html?error=${encodeURIComponent(error.message)}`;
         });
 }
+
+
+
+
