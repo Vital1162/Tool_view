@@ -13,6 +13,7 @@ function loadContent(page) {
             document.getElementById('main-content').innerHTML = data;
             // Create a script element to load clock.js
             const script = document.createElement('script');
+
             script.src = '../js/clock.js';
             document.body.appendChild(script);
         })
